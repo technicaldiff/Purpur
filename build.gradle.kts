@@ -47,3 +47,9 @@ subprojects {
         credentials(PasswordCredentials::class)
     }
 }
+
+tasks {
+    withType<xyz.jpenilla.toothpick.task.ApplyPatches> {
+      this.applyCommand(xyz.jpenilla.toothpick.task.ApplyPatches.DEFAULT_APPLY_COMMAND.toMutableList().apply { add("--keep-non-patch") })
+    }
+}
